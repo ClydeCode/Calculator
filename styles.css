@@ -1,0 +1,59 @@
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('fonts/digital-7.ttf');
+   }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 20%;
+    margin: 50 auto;
+    border: 2px solid royalblue;
+}
+
+.container-display-text,  .container-display-history {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 25%;
+    width: 100%;
+    background-color: skyblue;
+}
+
+.display-text {
+    margin: 18px 15px;
+    font-size: 40px;
+    font-family: 'digital-clock-font';
+}
+
+.container-display-history {
+    display: flex;
+    justify-content: flex-end;
+    height: 10%;
+}
+
+.display-history {
+    margin: 0 20px;
+    font-size: 25px;
+    font-family: 'digital-clock-font';
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1 0 0;
+    border: 2px solid aqua;
+    height: 10px;
+    padding: 10px;
+}
+
+button {
+    flex: 1 0 auto;
+    height: 15%;
+    width: 20%;
+    font-size: 25px;
+}
