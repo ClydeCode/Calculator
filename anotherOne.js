@@ -8,14 +8,15 @@ const calculate = document.querySelector('.calculate');
 
 class Calculator {
     constructor () {
-        this.firstNumber = '';
+        this.firstNumber = '0';
         this.secondNumber = '';
         this.operator = '';
         this.history = '';
+        this.updateDisplay();
     }
 
     clearEverything () {
-        this.firstNumber = '';
+        this.firstNumber = '0';
         this.secondNumber = '';
         this.operator = '';
         this.history = '';
@@ -35,18 +36,19 @@ class Calculator {
     }
 
     appendNumber (number) {
-        if (this.firstNumber && this.operator)
-            return this.secondNumber += number;
+        if (this.firstNumber === '0') return this.firstNumber = number;
+        if (this.operator) return this.secondNumber += number;
         this.firstNumber += number;
     }
 
     chooseOperator (operator) {
-        if (this.firstNumber)
+        if (this.firstNumber > 0)
             return this.operator = operator;
     }
 
     updateDisplay () {
         let text = this.firstNumber + ' ' + this.operator + ' ' + this.secondNumber;
+        if (text.length > 18) return;
         display.textContent = text;
         displayHistory.textContent = this.history;
     }
@@ -63,6 +65,8 @@ class Calculator {
                 return this.firstNumber = this.scientificNotation(this.round(this.multiply(this.firstNumber, this.secondNumber)));
             case '/':
                 return this.firstNumber = this.scientificNotation(this.round(this.divide(this.firstNumber, this.secondNumber)));
+            case '%':
+                return this.firstNumber = this.round(this.percentages(this.firstNumber, this.secondNumber));
         }
     }
 
@@ -102,6 +106,11 @@ class Calculator {
     }
     divide (firstNumber, secondNumber) {
         return firstNumber / secondNumber;
+    }
+    percentages (firstNumber, secondNumber) {
+        if (firstNumber >= secondNumber)
+            return (100 * firstNumber) / secondNumber;
+        return (100 * secondNumber) / firstNumber;
     }
 }
 

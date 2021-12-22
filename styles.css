@@ -80,6 +80,7 @@ button {
 }
 
 .percentages, .plusminus, .clear-button {
+    color:#212121;
     background: linear-gradient(180deg, #f7f7f7, #f1f1f1);
 }
 
