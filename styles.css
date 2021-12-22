@@ -3,40 +3,51 @@
     src: url('fonts/digital-7.ttf');
    }
 
+body {
+    background: linear-gradient(300deg, #ff9768, #9156e1);
+    height: 94%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 570px;
     width: 20%;
     margin: 50 auto;
-    border: 2px solid royalblue;
 }
 
 .container-display-text,  .container-display-history {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    height: 25%;
+    height: 110px;
     width: 100%;
-    background-color: skyblue;
+    background-color: #212121;
+}
+
+.container-display-text {
+    height: 80px;
 }
 
 .display-text {
-    margin: 18px 15px;
-    font-size: 40px;
+    margin: 20px 15px;
+    font-size: 43px;
     font-family: 'digital-clock-font';
+    color: white;
 }
 
 .container-display-history {
     display: flex;
     justify-content: flex-end;
     height: 10%;
+    margin-top: 50px;
 }
 
 .display-history {
     margin: 0 20px;
-    font-size: 25px;
+    font-size: 21px;
     font-family: 'digital-clock-font';
+    color: #d98192;
 }
 
 .buttons-container {
@@ -44,16 +55,35 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
     flex: 1 0 0;
-    border: 2px solid aqua;
-    height: 10px;
-    padding: 10px;
 }
 
 button {
     flex: 1 0 auto;
-    height: 15%;
-    width: 20%;
+    height: 80px;
+    width: 80px;
     font-size: 25px;
+    color: #212121;
+    border: none;
+    background: linear-gradient(90deg,#ffffff, #f4f4f4)
+}
+
+.operators {
+    background: #9156e1;
+    color: white;
+}
+
+.calculate {
+    background: #e62f89;
+    color: white;
+    width: 172px;
+}
+
+.percentages, .plusminus, .clear-button {
+    background: linear-gradient(180deg, #f7f7f7, #f1f1f1);
+}
+
+button:hover {
+    opacity: 75%;
+    cursor: pointer;
 }
