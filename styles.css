@@ -5,7 +5,9 @@
 
 body {
     background: linear-gradient(300deg, #ff9768, #9156e1);
-    height: 94%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -62,6 +64,7 @@ button {
     flex: 1 0 auto;
     height: 80px;
     width: 80px;
+    font-weight: 350;
     font-size: 25px;
     color: #212121;
     border: none;
@@ -88,3 +91,17 @@ button:hover {
     opacity: 75%;
     cursor: pointer;
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+    gap: 15px;
+}
+
+.footer-text {
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
