@@ -36,13 +36,13 @@ class Calculator {
     }
 
     appendNumber (number) {
-        if (this.firstNumber === '0') return this.firstNumber = number;
         if (this.operator) return this.secondNumber += number;
+        if (this.firstNumber == '0') return this.firstNumber = number;
         this.firstNumber += number;
     }
 
     chooseOperator (operator) {
-        if (this.firstNumber > 0)
+        if (this.firstNumber)
             return this.operator = operator;
     }
 
@@ -73,7 +73,7 @@ class Calculator {
     round (number) {
         const numStr = String(number);
         if (numStr.includes('.')) {
-            if (numStr.split('.')[1].length > 2) {
+            if (numStr.split('.')[1].length > 3) {
             const m = Number((Math.abs(number) * 100).toPrecision(15));
             return parseFloat(Math.round(m) / 100 * Math.sign(number));
             }
