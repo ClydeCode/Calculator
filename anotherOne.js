@@ -75,7 +75,6 @@ class Calculator {
     convertNumber () {
         const firstNumb = String(this.firstNumber);
 
-        console.log(typeof(this.firstNumber));
         if (!firstNumb.includes('-') && !this.secondNumber)
             return this.firstNumber = '-' + this.firstNumber;
         this.firstNumber = firstNumb.replace('-', '');
@@ -84,8 +83,6 @@ class Calculator {
     addDot () {
         const firstNumb = String(this.firstNumber);
         const secNumb = String(this.secondNumber);
-
-        console.log(typeof(this.firstNumber));
 
         if (!firstNumb.includes('.') && !this.operator)
             return this.firstNumber += '.';
