@@ -6,6 +6,7 @@ const operators = document.querySelectorAll('.operators');
 const clear = document.querySelector('.clear-button');
 const calculate = document.querySelector('.calculate');
 const plusminus = document.querySelector('.plusminus');
+const dot = document.querySelector('.dot');
 
 class Calculator {
     constructor () {
@@ -72,8 +73,24 @@ class Calculator {
     }
 
     convertNumber () {
-        if (!this.secondNumber)
-            this.firstNumber *= -1;
+        const firstNumb = String(this.firstNumber);
+
+        console.log(typeof(this.firstNumber));
+        if (!firstNumb.includes('-') && !this.secondNumber)
+            return this.firstNumber = '-' + this.firstNumber;
+        this.firstNumber = firstNumb.replace('-', '');
+    }
+
+    addDot () {
+        const firstNumb = String(this.firstNumber);
+        const secNumb = String(this.secondNumber);
+
+        console.log(typeof(this.firstNumber));
+
+        if (!firstNumb.includes('.') && !this.operator)
+            return this.firstNumber += '.';
+        if (!secNumb.includes('.') && this.operator)
+            return this.secondNumber += '.';
     }
 
     round (number) {
@@ -157,4 +174,9 @@ calculate.addEventListener('click', () => {
 plusminus.addEventListener('click', () => {
     calculator.convertNumber();
     calculator.updateDisplay();
-})
+});
+
+dot.addEventListener('click', () => {
+    calculator.addDot();
+    calculator.updateDisplay();
+});
