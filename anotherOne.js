@@ -39,12 +39,12 @@ class Calculator {
 
     appendNumber (number) {
         if (this.operator) return this.secondNumber += number;
-        if (this.firstNumber == '0') return this.firstNumber = number;
+        if (this.firstNumber == '0' || this.firstNumber == "ERROR") return this.firstNumber = number;
         this.firstNumber += number;
     }
 
     chooseOperator (operator) {
-        if (this.firstNumber)
+        if (this.firstNumber && this.firstNumber != "ERROR")
             return this.operator = operator;
     }
 
@@ -75,7 +75,7 @@ class Calculator {
     convertNumber () {
         const firstNumb = String(this.firstNumber);
 
-        if (!firstNumb.includes('-') && !this.secondNumber)
+        if (!firstNumb.includes('-') && firstNumb != "ERROR" && !this.secondNumber)
             return this.firstNumber = '-' + this.firstNumber;
         this.firstNumber = firstNumb.replace('-', '');
     }
@@ -84,7 +84,7 @@ class Calculator {
         const firstNumb = String(this.firstNumber);
         const secNumb = String(this.secondNumber);
 
-        if (!firstNumb.includes('.') && !this.operator)
+        if (!firstNumb.includes('.') && firstNumb != "ERROR" && !this.operator)
             return this.firstNumber += '.';
         if (!secNumb.includes('.') && this.operator)
             return this.secondNumber += '.';
