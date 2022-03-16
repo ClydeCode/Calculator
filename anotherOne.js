@@ -112,7 +112,7 @@ class Calculator {
     }
 
     checkValues () {
-        return this.firstNumber && this.secondNumber && this.operator;
+        return this.firstNumber && (this.secondNumber && this.secondNumber != '.') && this.operator;
     }
     
     add (firstNumber, secondNumber) {
